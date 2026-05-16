@@ -261,10 +261,18 @@
             height: 100%;
         }
 
+        /* Gaya untuk gambar blog agar bisa diklik & ada efek seperti galeri */
         .blog-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.25s ease, opacity 0.2s ease;
+        }
+        
+        .blog-card img:hover {
+            transform: scale(1.02);
+            opacity: 0.92;
         }
 
         .blog-content {
@@ -301,6 +309,11 @@
             height: 280px;
             object-fit: cover;
             border-radius: 20px;
+            transition: 0.2s;
+        }
+        .gallery-swiper .swiper-slide:hover img {
+            transform: scale(1.01);
+            opacity: 0.95;
         }
 
         .gallery-caption {
@@ -676,13 +689,13 @@
             slide.addEventListener('click', () => openModal(slide.dataset.type, slide.dataset.url));
         });
 
-        // ========== BLOG ==========
+        // ========== BLOG (dengan gambar yang dapat diklik seperti galeri) ==========
         document.getElementById('blogTitle').innerText = d.settings.blogTitle;
         const blogWrapper = document.getElementById('blogWrapper');
         blogWrapper.innerHTML = d.blogPosts.map(post => `
             <div class="swiper-slide">
                 <div class="blog-card">
-                    <img src="${post.image}" alt="${post.title}" onerror="this.src='https://placehold.co/600x400'">
+                    <img src="${post.image}" alt="${post.title}" onerror="this.src='https://placehold.co/600x400?text=Gambar+Blog'">
                     <div class="blog-content">
                         <h3>${post.title}</h3>
                         <small>${post.date}</small>
@@ -699,6 +712,26 @@
             breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
             navigation: false
         });
+        
+        // ========== EVENT KLIK GAMBAR BLOG (seperti galeri) ==========
+        // Event delegation untuk menangkap klik pada gambar di dalam .blog-card
+        // Memastikan gambar bisa diklik dan membuka modal dengan gambar besar
+        // (mirip dengan behavior galeri)
+        if (blogWrapper) {
+            // Hapus listener lama jika ada untuk mencegah duplikasi, lalu pasang yang baru
+            // Menggunakan flag untuk keamanan, namun karena renderAll dipanggil sekali, langsung pasang.
+            // Agar lebih bersih, lepas dulu jika sudah ada, lalu pasang ulang.
+            // Untuk memudahkan, kita pasang listener baru menggunakan event delegation.
+            // Namun perlu dipastikan tidak terjadi dobel event. Karena fungsi ini hanya dijalankan sekali pada load,
+            // kita bisa hapus listener sebelumnya dengan cara clone? Alternatif: gunakan event baru namun tidak masalah karena sebelumnya tidak ada.
+            // Agar aman, kita buat fungsi attach dan hapus bila perlu. Tapi karena hanya 1x render, tidak masalah.
+            // Kita tetap gunakan event delegation di parent #blogWrapper
+            // (Jika event sebelumnya sudah terpasang, kita tidak perlu pasang ulang. Tapi kita cek dan pasang sekali secara global di bawah.)
+            // Agar lebih solid, kita akan pasang listener global di #blogWrapper di bagian inisialisasi akhir (setelah loadData).
+            // Tapi untuk memastikan gambar blog yang baru dirender tetap responsif, kita akan pasang listener di sini juga,
+            // namun tanpa duplikasi. Kita gunakan fungsi yang akan dipanggil sekali setelah render.
+            attachBlogImageClickHandler();
+        }
 
         // ========== BROCHURE ==========
         const brochureSection = document.getElementById('brochureSection');
@@ -741,49 +774,95 @@
         });
     }
 
+    // Fungsi untuk memasang event listener klik pada gambar blog (mirip galeri)
+    function attachBlogImageClickHandler() {
+        const blogContainer = document.getElementById('blogWrapper');
+        if (!blogContainer) return;
+        // Hindari duplikasi event dengan removeListener terlebih dahulu? Karena tidak ada event sebelumnya, aman.
+        // Namun jika suatu saat dipanggil ulang, kita perlu menghapus event lama agar tidak numpuk.
+        // Caranya: buat handler baru, simpan reference, lepas sebelumnya. Tapi untuk kesederhanaan, kita cukup cegah duplikasi dengan flag.
+        if (blogContainer.hasAttribute('data-blog-click-attached')) return;
+        blogContainer.setAttribute('data-blog-click-attached', 'true');
+        
+        blogContainer.addEventListener('click', (e) => {
+            // Cari elemen gambar yang diklik (mungkin img itu sendiri atau anak dari .blog-card)
+            const targetImg = e.target.closest('.blog-card img');
+            if (targetImg && targetImg.src) {
+                e.preventDefault();
+                e.stopPropagation();
+                // Buka modal dengan tipe gambar dan URL gambar tersebut
+                openModal('image', targetImg.src);
+            }
+        });
+    }
+
     function extractVideoId(url) {
         let match = url.match(/embed\/([^?]+)/);
-        return match ? match[1] : 'dQw4w9WgXcQ';
+        if (match) return match[1];
+        match = url.match(/v=([^&]+)/);
+        if (match && match[1]) return match[1];
+        return 'dQw4w9WgXcQ';
     }
 
     function openModal(type, src) {
         const modal = document.getElementById('mediaModal');
         const modalContent = document.getElementById('modalContent');
+        if (!modal || !modalContent) return;
         if(type === 'image') {
-            modalContent.innerHTML = `<img src="${src}" style="max-width:100%;max-height:80vh;">`;
+            modalContent.innerHTML = `<img src="${src}" style="max-width:100%;max-height:80vh; border-radius:12px;">`;
         } else {
-            modalContent.innerHTML = `<iframe width="100%" height="400" src="${src}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
+            // Untuk video: pastikan embed URL bisa di-play
+            let finalUrl = src;
+            if (src.includes('youtube.com/watch')) {
+                let videoId = src.split('v=')[1]?.split('&')[0];
+                if(videoId) finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            } else if (src.includes('youtu.be')) {
+                let videoId = src.split('/').pop()?.split('?')[0];
+                if(videoId) finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            } else if (!src.includes('embed') && !src.includes('youtube.com/embed')) {
+                // fallback
+                finalUrl = src;
+            }
+            modalContent.innerHTML = `<iframe width="100%" height="400" src="${finalUrl}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
         }
         modal.style.display = 'flex';
     }
 
-    document.querySelector('.close-modal').addEventListener('click', () => {
-        document.getElementById('mediaModal').style.display = 'none';
-        document.getElementById('modalContent').innerHTML = '';
+    document.querySelector('.close-modal')?.addEventListener('click', () => {
+        const modal = document.getElementById('mediaModal');
+        if(modal) modal.style.display = 'none';
+        const modalContent = document.getElementById('modalContent');
+        if(modalContent) modalContent.innerHTML = '';
     });
     window.addEventListener('click', (e) => {
-        if(e.target === document.getElementById('mediaModal')) {
-            document.getElementById('mediaModal').style.display = 'none';
+        const modal = document.getElementById('mediaModal');
+        if(e.target === modal) {
+            modal.style.display = 'none';
+            const modalContent = document.getElementById('modalContent');
+            if(modalContent) modalContent.innerHTML = '';
         }
     });
 
     // ========== TRIPLE CLICK FOOTER ==========
     const footer = document.getElementById('secretFooter');
-    footer.addEventListener('click', () => {
-        clickCount++;
-        clearTimeout(clickTimer);
-        clickTimer = setTimeout(() => { clickCount = 0; }, 800);
-        if (clickCount === 3) {
-            const pin = prompt("Masukkan PIN untuk akses Admin:");
-            if (pin === "4321") {
-                window.location.href = "admin.html";
-            } else {
-                alert("PIN salah!");
+    if(footer) {
+        footer.addEventListener('click', () => {
+            clickCount++;
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => { clickCount = 0; }, 800);
+            if (clickCount === 3) {
+                const pin = prompt("Masukkan PIN untuk akses Admin:");
+                if (pin === "4321") {
+                    window.location.href = "admin.html";
+                } else {
+                    alert("PIN salah!");
+                }
+                clickCount = 0;
             }
-            clickCount = 0;
-        }
-    });
+        });
+    }
 
+    // Jalankan load data
     loadData();
 </script>
 </body>
