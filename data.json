@@ -58,35 +58,55 @@
       "fallback": "https://placehold.co/1920x500/1c84b5/white?text=SELAMAT%20DATANG%20DI%20SAMIRA%20TRAVEL"
     }
   ],
-  "gallery": [
+ "gallery": [
     {
-      "id": "1",
-      "caption": "Masjid Nabawi - Madinah",
+      "id": "1779346612171",
+      "caption": "MADINAH",
       "type": "image",
       "url": "./assets/gallery/gallery_1.jpg",
-      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=Masjid+Nabawi"
+      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=MADINAH"
     },
     {
-      "id": "2",
-      "caption": "Ka'bah - Mekah",
+      "id": "1779346634380",
+      "caption": "MEBERSAMAI JAMAAH",
       "type": "image",
       "url": "./assets/gallery/gallery_2.jpg",
-      "fallback": "https://placehold.co/600x400/2c9bcf/white?text=Ka'bah"
+      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=MEBERSAMAI%20JAMAAH"
     },
     {
-      "id": "3",
-      "caption": "Jamaah Samira Travel",
+      "id": "1779346646699",
+      "caption": "MANASIK AKBAR",
       "type": "image",
       "url": "./assets/gallery/gallery_3.jpg",
-      "fallback": "https://placehold.co/600x400/6ec1e4/white?text=Jamaah"
+      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=MANASIK%20AKBAR"
     },
     {
-      "id": "4",
-      "caption": "Video Perjalanan Umroh - Momen Haru",
-      "type": "video",
-      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-      "fallback": "https://placehold.co/600x400/2c9bcf/white?text=Video+Umroh"
+      "id": "1779346669756",
+      "caption": "UMBAST",
+      "type": "image",
+      "url": "./assets/gallery/gallery_4.jpg",
+      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=UMBAST"
+    },
+    {
+      "id": "1779346716219",
+      "caption": "TOUR",
+      "type": "image",
+      "url": "./assets/gallery/gallery_5.jpg",
+      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=TOUR"
+    },
+    {
+      "id": "1779346729771",
+      "caption": "HOTEL",
+      "type": "image",
+      "url": "./assets/gallery/gallery_6.jpg",
+      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=HOTEL"
+    },
+    {
+      "id": "1779346765932",
+      "caption": "OUR SERVICE",
+      "type": "image",
+      "url": "./assets/gallery/gallery_7.jpg",
+      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=OUR%20SERVICE"
     }
   ],
   "services": [
