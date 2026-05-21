@@ -137,20 +137,12 @@
     },
     {
       "id": "2",
-      "title": "Tips Memilih travel",
-      "excerpt": "Ibadah tenang dan khusyuk bersama SAMIRA TRAVEL",
-      "content": "",
-      "date": "2026-05-16",
-      "image": "./assets/blog/blog_1.jpg"
-    }
-    {
-      "id": "3",
       "title": "PENJELASAN PAKET UMROH SAMIRA TRAVEL",
       "excerpt": "SAFARA BINTANG 3. SUKARI BINTANG 4 . MAJOL BINTANG 5 . MEKKAH HOTEL BINTANG 3 JARAK KEMASJID 900M, MADINAH HOTEL BINTANG 3 JARAK KEMASJID 500M",
       "content": "",
       "date": "2026-05-21",
       "image": "./assets/blog/blog_3.jpg"
-    }
+    }    
   ],
   "brochure": "./assets/brochure/brochure.jpg",
   "brochureFallback": "https://placehold.co/320x420/bfe2f2/0d5f7e?text=Brosur+Samira",
