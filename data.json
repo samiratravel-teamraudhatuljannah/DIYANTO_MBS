@@ -47,65 +47,65 @@
       "id": "1779346302387",
       "title": "UMROH SAMIRA TRAVEL",
       "caption": "HARGA MULAI 35 JUTAAN",
-      "image": "./assets/carousel/slide_1.jpg",
+      "image": "assets/carousel/slide_1.jpg",
       "fallback": "https://placehold.co/1920x500/1c84b5/white?text=UMROH%20SAMIRA%20TRAVEL"
     },
     {
       "id": "1779346345955",
       "title": "SELAMAT DATANG DI SAMIRA TRAVEL",
       "caption": "UMROH NYAMAN , AMAN , DAN TERPERCAYA",
-      "image": "./assets/carousel/slide_2.jpg",
+      "image": "assets/carousel/slide_2.jpg",
       "fallback": "https://placehold.co/1920x500/1c84b5/white?text=SELAMAT%20DATANG%20DI%20SAMIRA%20TRAVEL"
     }
   ],
- "gallery": [
+  "gallery": [
     {
       "id": "1779346612171",
       "caption": "MADINAH",
       "type": "image",
-      "url": "./assets/gallery/gallery_1.jpg",
+      "url": "assets/gallery/gallery_1.jpg",
       "fallback": "https://placehold.co/600x400/3a8bbb/white?text=MADINAH"
     },
     {
       "id": "1779346634380",
       "caption": "MEBERSAMAI JAMAAH",
       "type": "image",
-      "url": "./assets/gallery/gallery_2.jpg",
+      "url": "assets/gallery/gallery_2.jpg",
       "fallback": "https://placehold.co/600x400/3a8bbb/white?text=MEBERSAMAI%20JAMAAH"
     },
     {
       "id": "1779346646699",
       "caption": "MANASIK AKBAR",
       "type": "image",
-      "url": "./assets/gallery/gallery_3.jpg",
+      "url": "assets/gallery/gallery_3.jpg",
       "fallback": "https://placehold.co/600x400/3a8bbb/white?text=MANASIK%20AKBAR"
     },
     {
       "id": "1779346669756",
       "caption": "UMBAST",
       "type": "image",
-      "url": "./assets/gallery/gallery_4.jpg",
+      "url": "assets/gallery/gallery_4.jpg",
       "fallback": "https://placehold.co/600x400/3a8bbb/white?text=UMBAST"
     },
     {
       "id": "1779346716219",
       "caption": "TOUR",
       "type": "image",
-      "url": "./assets/gallery/gallery_5.jpg",
+      "url": "assets/gallery/gallery_5.jpg",
       "fallback": "https://placehold.co/600x400/3a8bbb/white?text=TOUR"
     },
     {
       "id": "1779346729771",
       "caption": "HOTEL",
       "type": "image",
-      "url": "./assets/gallery/gallery_6.jpg",
+      "url": "assets/gallery/gallery_6.jpg",
       "fallback": "https://placehold.co/600x400/3a8bbb/white?text=HOTEL"
     },
     {
       "id": "1779346765932",
       "caption": "OUR SERVICE",
       "type": "image",
-      "url": "./assets/gallery/gallery_7.jpg",
+      "url": "assets/gallery/gallery_7.jpg",
       "fallback": "https://placehold.co/600x400/3a8bbb/white?text=OUR%20SERVICE"
     }
   ],
@@ -133,7 +133,7 @@
       "excerpt": "Ibadah tenang dan khusyuk bersama SAMIRA TRAVEL",
       "content": "",
       "date": "2026-05-16",
-      "image": "./assets/blog/blog_1.jpg"
+      "image": "assets/blog/blog_1.jpg"
     },
     {
       "id": "2",
@@ -141,13 +141,13 @@
       "excerpt": "SAFARA BINTANG 3. SUKARI BINTANG 4 . MAJOL BINTANG 5 . MEKKAH HOTEL BINTANG 3 JARAK KEMASJID 900M, MADINAH HOTEL BINTANG 3 JARAK KEMASJID 500M",
       "content": "",
       "date": "2026-05-21",
-      "image": "./assets/blog/blog_3.jpg"
-    }    
+      "image": "assets/blog/blog_3.jpg"
+    }
   ],
-  "brochure": "./assets/brochure/brochure.jpg",
+  "brochure": "assets/brochure/brochure.jpg",
   "brochureFallback": "https://placehold.co/320x420/bfe2f2/0d5f7e?text=Brosur+Samira",
-  "logo": "./assets/logo/logo.png",
+  "logo": "assets/logo/logo.png",
   "logoFallback": "https://placehold.co/200x60/bfdff0/1c6c8f?text=Samira",
-  "mitraPhoto": "./assets/mitra/mitra.png",
+  "mitraPhoto": "assets/mitra/mitra.png",
   "mitraPhotoFallback": "https://placehold.co/150x150/3a8bbb/white?text=Mitra"
 }
