@@ -44,18 +44,18 @@
   },
   "carousel": [
     {
-      "id": "1",
-      "title": "Selamat Datang di Samira Travel",
-      "caption": "Perjalanan Ibadah yang Nyaman",
+      "id": "1779346302387",
+      "title": "UMROH SAMIRA TRAVEL",
+      "caption": "HARGA MULAI 35 JUTAAN",
       "image": "./assets/carousel/slide_1.jpg",
-      "fallback": "https://placehold.co/1920x500/1c84b5/white?text=Umroh+2025"
+      "fallback": "https://placehold.co/1920x500/1c84b5/white?text=UMROH%20SAMIRA%20TRAVEL"
     },
     {
-      "id": "2",
-      "title": "Dapatkan Harga Terbaik",
-      "caption": "Promo Early Bird 2025",
+      "id": "1779346345955",
+      "title": "SELAMAT DATANG DI SAMIRA TRAVEL",
+      "caption": "UMROH NYAMAN , AMAN , DAN TERPERCAYA",
       "image": "./assets/carousel/slide_2.jpg",
-      "fallback": "https://placehold.co/1920x500/0b5e7e/white?text=Haji+Khusus"
+      "fallback": "https://placehold.co/1920x500/1c84b5/white?text=SELAMAT%20DATANG%20DI%20SAMIRA%20TRAVEL"
     }
   ],
   "gallery": [
