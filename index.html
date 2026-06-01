@@ -237,6 +237,133 @@
             margin: 10px auto 0;
         }
 
+        /* ========== INTRO SECTION ========== */
+        .intro-section {
+            background: linear-gradient(135deg, var(--bg-light), #ffffff);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .intro-section h2 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .intro-highlight {
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* ========== EDUKASI SECTION ========== */
+        .edukasi-section {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6d9);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .edukasi-section h2 {
+            color: #2e7d32;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .edukasi-section .subtitle {
+            font-size: 1.2rem;
+            color: #1b5e20;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .edukasi-video {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .edukasi-video video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .benefit-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            text-align: left;
+            margin: 30px 0;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+        }
+
+        .benefit-list li {
+            list-style: none;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .benefit-list li i {
+            color: #2e7d32;
+            font-size: 18px;
+            width: 25px;
+        }
+
+        .akad-note {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            color: #e65100;
+        }
+
+        .cta-edukasi {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .service-card {
             background: var(--bg-light);
             border-radius: 20px;
@@ -455,6 +582,14 @@
                 height: 50px;
                 font-size: 24px;
             }
+
+            .intro-section, .edukasi-section {
+                padding: 25px;
+            }
+
+            .benefit-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -506,11 +641,70 @@
 
 <!-- Main Content -->
 <main class="container">
+    
+    <!-- ========== SECTION INTRO (UMROH MEMBERSAMAI SAMIRA TRAVEL) ========== -->
+    <section id="introSection">
+        <div class="intro-section">
+            <h2>🕋 Umroh Membersamai Samira Travel</h2>
+            <p>Berbekal pengalaman dan keahlian yang profesional, <strong>SAMIRA TRAVEL</strong> telah memiliki izin resmi dari pemerintah serta <strong>Rekor MURI</strong>.</p>
+            <p>Kami mengerti betapa pentingnya ibadah umroh bagi Anda, dan kami berkomitmen untuk memberikan pengalaman terbaik dalam perjalanan Anda menuju tanah suci.</p>
+            <div class="intro-highlight">
+                <i class="fas fa-star-of-life"></i> Terpercaya & Profesional <i class="fas fa-star-of-life"></i>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-headset"></i> Silahkan hubungi saya <strong>Diyanto ST,MM,MBS</strong> jika ingin bertanya, kami akan melayani 24 jam.<br>
+                <i class="fab fa-whatsapp" style="color:#25D366;"></i> <strong>+62 812-1325-6820</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION LAYANAN UNGGULAN ========== -->
     <section id="servicesSection">
         <h2 class="section-title">Layanan Unggulan</h2>
         <div class="swiper services-swiper" id="servicesSwiper">
             <div class="swiper-wrapper" id="servicesWrapper"></div>
             <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION EDUKASI (UMROH DULU BAYAR BELAKANGAN) ========== -->
+    <section id="edukasiSection">
+        <div class="edukasi-section">
+            <h2>📖 Umroh Dulu, Bayar Belakangan</h2>
+            <div class="subtitle">Alhamdulillah... Bayar DP setelah dinyatakan ACC ✅</div>
+            
+            <div class="edukasi-video">
+                <video id="edukasiVideo" controls poster="assets/blog/video_thumb.jpg">
+                    <source src="assets/blog/video.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung video tag.
+                </video>
+            </div>
+
+            <div class="benefit-list">
+                <li><i class="fas fa-check-circle"></i> Melalui Pembiayaan <strong>Amitra Syariah</strong></li>
+                <li><i class="fas fa-check-circle"></i> Tanpa Riba</li>
+                <li><i class="fas fa-check-circle"></i> Diawasi oleh Dewan Syariah MUI & OJK</li>
+                <li><i class="fas fa-check-circle"></i> Tanpa BI Checking</li>
+                <li><i class="fas fa-check-circle"></i> Tanpa Jaminan/Anggunan</li>
+                <li><i class="fas fa-check-circle"></i> Tanpa Denda Keterlambatan</li>
+                <li><i class="fas fa-check-circle"></i> Tanpa Denda Finalti</li>
+                <li><i class="fas fa-check-circle"></i> Jika Pemohon Wafat ➜ Sisa Pembiayaan Lunas</li>
+            </div>
+
+            <div class="akad-note">
+                📜 Dengan akad <strong>Murabahah / Ijarah Multijasa / Akad Jual Beli</strong> sesuai Fatwa Dewan Syariah Nasional Nomor: <strong>44/DSN-MUI/VIII/2004</strong>
+            </div>
+
+            <p style="font-size:1rem; margin:15px 0;">
+                ✨ <strong>Segera daftar dari sekarang, jangan sampai kehabisan seat!</strong><br>
+                🥰 Sekarang Umroh bukan lagi impian. <strong>Umroh semudah senyuman</strong><br>
+                🕋 INSPIRASI UMROHKU...<br>
+                Labbaik.... Labbaik..... Allahu Akbar...
+            </p>
+
+            <button id="edukasiWaBtn" class="cta-edukasi">
+                <i class="fab fa-whatsapp"></i> Info Pendaftaran & Pembiayaan
+            </button>
         </div>
     </section>
 
@@ -602,11 +796,9 @@
             console.log('Mencoba memuat data.json...');
             console.log('URL saat ini:', window.location.href);
             
-            // Coba beberapa kemungkinan path untuk GitHub Pages
             let data = null;
             let paths = ['data.json', './data.json'];
             
-            // Jika di subfolder, tambahkan path dengan base path
             const pathname = window.location.pathname;
             if (pathname.includes('/') && !pathname.endsWith('/index.html') && !pathname.endsWith('/')) {
                 const basePath = pathname.substring(0, pathname.lastIndexOf('/') + 1);
@@ -837,6 +1029,14 @@
                 window.open(`https://wa.me/${waNumber}?text=Assalamualaikum%20saya%20ingin%20bertanya%20tentang%20umroh`, '_blank');
             });
         });
+
+        // ========== EDUKASI SECTION WA BUTTON ==========
+        const edukasiWaBtn = document.getElementById('edukasiWaBtn');
+        if(edukasiWaBtn) {
+            edukasiWaBtn.addEventListener('click', () => {
+                window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent('Assalamualaikum, saya tertarik dengan program UMROH DULU BAYAR BELAKANGAN melalui Amitra Syariah. Mohon info lebih lanjut.')}`, '_blank');
+            });
+        }
     }
 
     function attachBlogImageClickHandler() {
