@@ -95,13 +95,6 @@
       "fallback": "https://placehold.co/600x400/3a8bbb/white?text=TOUR"
     },
     {
-      "id": "1779346729771",
-      "caption": "HOTEL",
-      "type": "image",
-      "url": "assets/gallery/gallery_6.jpg",
-      "fallback": "https://placehold.co/600x400/3a8bbb/white?text=HOTEL"
-    },
-    {
       "id": "1779346765932",
       "caption": "OUR SERVICE",
       "type": "image",
